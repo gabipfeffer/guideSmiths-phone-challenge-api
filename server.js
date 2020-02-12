@@ -1,10 +1,18 @@
 const express = require('express');
-
+const cors = require('cors');
 const port = 3005;
+
 const app = express();
 
+// mock data
 const phones = require('./phones');
 
+//middleware
+app.use(cors());
+app.use(express.static('images'))
+
+
+// get requests
 app.get('/phones', (req, res) => {
   !phones
     ? res.status(400).json('unable to get phone list')
