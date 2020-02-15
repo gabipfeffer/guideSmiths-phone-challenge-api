@@ -9,8 +9,7 @@ const phones = require('./phones');
 
 //middleware
 app.use(cors());
-app.use(express.static('images'))
-
+app.use(express.static('images'));
 
 // get requests
 app.get('/phones', (req, res) => {
@@ -29,8 +28,7 @@ app.get('/phones/:idPhone', (req, res) => {
 
 app.delete('/phones/:idPhone', (req, res) => {
   const { idPhone } = req.params;
-
   res.status(200).json(phones.filter(phone => phone.id.toString() !== idPhone));
-})
+});
 
 app.listen(port, console.log(`Server is listening on port ${port}`));
