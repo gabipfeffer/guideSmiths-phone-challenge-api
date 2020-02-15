@@ -27,4 +27,10 @@ app.get('/phones/:idPhone', (req, res) => {
     : res.json(phones.filter(phone => phone.id.toString() === idPhone));
 });
 
+app.delete('/phones/:idPhone', (req, res) => {
+  const { idPhone } = req.params;
+
+  res.status(200).json(phones.filter(phone => phone.id.toString() !== idPhone));
+})
+
 app.listen(port, console.log(`Server is listening on port ${port}`));
