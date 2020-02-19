@@ -9,7 +9,7 @@ const phones = require('./phones');
 
 //middleware
 app.use(cors());
-app.use(express.static('images'));
+app.use(express.static('public'));
 
 // get requests
 app.get('/phones', (req, res) => {
